@@ -1,4 +1,5 @@
 from django.db import models
+from course.models import Courses
 
 
 class Student(models.Model):
@@ -7,7 +8,7 @@ class Student(models.Model):
     date_of_birth = models.DateField()
     email = models.EmailField(unique=True)
     enrollment_date = models.DateField(auto_now_add=True)
-    #courses = models.ManyToManyField(Courses, related_name='students')
+    courses = models.ManyToManyField(Courses, related_name='students')
 
 
     def __str__(self):
